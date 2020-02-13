@@ -1,0 +1,61 @@
+<table id ="items">
+  <tr>
+    <th>Jméno</th>
+    <th>Příjmení</th>
+    <th>RČ</th>
+    <th>Stav</th>
+    <th>Datum narození</th>
+    <th>Místo narození</th>
+    <th>Bydliště</th>
+    <th>Křest</th>
+  </tr>
+    <%
+    krest = @item.DAT_KRTU
+    if krest.nil?
+      if @item.KREST.nil? || @item.KREST.upcase != "A"
+        krest = "Ne"
+      else
+        krest = "Ano"
+      end
+    end
+    %>
+
+  <tr>
+    <td><%= @item.JMENO %>
+    <td><%= @item.PRIJMENI %>
+    <td><%= @item.ROD_CISLO %> 
+    <td><%= @item.STAV %>
+    <td><%= @item.DAT_NAR %>
+    <td><%= @item.MISTO_NAR %>
+    <td><%= @item.BYDL %>
+    <td><%= krest %>
+  </tr>
+</table>
+
+<%= link_to 'Potvrzení o křtu', {
+    :controller => :items,
+    :action => 'print',
+    :id => @item.ROD_CISLO, :jmeno => @item.JMENO, :prijmeni => @item.PRIJMENI
+  },
+  class: "button"
+%>
+<%= link_to 'Potvrzení o sňatku', {
+    :controller => :items,
+    :action => 'print',
+    :potvrzeni => 'snatek',
+    :id => @item.ROD_CISLO, :jmeno => @item.JMENO, :prijmeni => @item.PRIJMENI
+  },
+  class: "button"
+%>
+<%= link_to 'Upravit', {
+    :action => 'edit', :id => @item.ROD_CISLO, :jmeno => @item.JMENO, :prijmeni => @item.PRIJMENI
+  },
+  class: "button"
+%>
+<%= link_to 'Odstranit', {
+    :id => @item.ROD_CISLO, :jmeno => @item.JMENO, :prijmeni => @item.PRIJMENI},
+    method: :delete,
+    data: { confirm: 'Opravdu?' },
+    class: "button-warn"
+%>
+<%= link_to 'Zpět na seznam', items_path %>

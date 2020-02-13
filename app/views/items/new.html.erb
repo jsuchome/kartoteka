@@ -1,0 +1,35 @@
+<h1>Nová položka</h1>
+
+
+<%= form_with scope: :item, url: items_path, local: true do |form| %>
+
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:
+      </h2>
+      <ul>
+        <% @item.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <p>
+    Jméno: <%= form.text_field :JMENO %>
+    Příjmení: <%= form.text_field :PRIJMENI %>
+    Rodné číslo: <%= form.text_field :ROD_CISLO %>
+    Stav: <%= form.text_field :STAV %>
+    Datum narození: <%= form.text_field :DAT_NAR %>
+    Místo narození: <%= form.text_field :MISTO_NAR %>
+    Bydliště: <%= form.text_field :BYDL %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Zpět na seznam', items_path %>
