@@ -86,7 +86,8 @@ a.button-warn {
 }
 
 #user_header {
-  float: right;
+  text-align: right;
+  padding-bottom: 10px;
 }
 
 #flash_notice, #flash_error, #flash_alert {
