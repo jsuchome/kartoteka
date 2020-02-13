@@ -1,13 +1,12 @@
 # Sortable table columns: http://railscasts.com/episodes/228-sortable-table-columns
+# Authorization: http://railscasts.com/episodes/250-authentication-from-scratch-revised
 class ItemsController < ApplicationController
+  before_action :authorize
   helper_method :sort_column, :sort_direction
   # layout "print", only: [:print]
 
   def index
     @items = Item.order(sort_column + ' ' + sort_direction)
-
-# render variants: [:mobile, :desktop]
-# -> index.html+mobile.erb
   end
 
   def edit
