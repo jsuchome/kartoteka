@@ -14,8 +14,10 @@
         <% if current_user %>
           Logged in as <%= current_user.email %>.
           <%= link_to "Log Out", logout_path %>
+          <% if current_user.admin? %>
+            <%= link_to "Add User", signup_path %>
+          <% end %>
         <% else %>
-          <%= link_to "Sign Up", signup_path %> or
           <%= link_to "Log In", login_path %>
         <% end %>
       </div>
