@@ -34,6 +34,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @type = params[:type]
   end
 
   def create

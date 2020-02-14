@@ -1,0 +1,80 @@
+<div id="print_page">
+<div id="header_zapis">KŘESTNÍ ZÁPIS DÍTĚTE</div>
+<div id="subheader_zapis">Osobní údaje v matrice budou uchovávány na farním úřadě.</div>
+<div id="subheader_zapis">Církev římskokatolická vede registr osob hlásících se k Církvi řimskokatolické.</div>
+
+<%= form_with scope: :item, url: items_path, local: true do |form| %>
+
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:
+      </h2>
+      <ul>
+        <% @item.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table id ="table_zapis">
+    <tr>
+      <th class="thirty">
+      <th class="seventy">
+    </tr>
+    <tr>
+      <td>Křestní jméno (jména)</td>
+      <td><%= form.text_field :JMENO, class: "text-input" %>
+    </tr>
+    <tr>
+      <td>Příjmení dítěte</td>
+      <td><%= form.text_field :PRIJMENI, class: "text-input" %>
+    </tr>
+    <tr>
+      <td>Datum narození</td>
+      <td><%= form.text_field :DAT_NAR, class: "text-input" %>
+    </tr>
+     <tr>
+      <td>Místo narození</td>
+      <td><%= form.text_field :MISTO_NAR, class: "text-input" %>
+    </tr>
+  </table>
+
+  <div id="header_table">OTEC DÍTĚTE</div>
+
+  <table id ="table_zapis">
+    <tr>
+      <th class="thirty">
+      <th class="seventy">
+    </tr>
+    <tr>
+      <td>Titul</td>
+      <td><%= form.text_field :TIT_OTC, class: "text-input" %>
+    </tr>
+    <tr>
+      <td>Jméno</td>
+      <td><%= form.text_field :JM_OTC, class: "text-input" %>
+    </tr>
+    <tr>
+      <td>Příjmení</td>
+      <td><%= form.text_field :PRIJ_OTC, class: "text-input" %>
+    </tr>
+    <tr>
+      <td>Datum narození</td>
+      <td><%= form.text_field :DAT_NAR_OTC, class: "text-input" %>
+    </tr>
+     <!--
+     Not in the DB
+     <tr>
+      <td>Místo narození</td>
+    </tr>
+    -->
+  </table>
+
+  <p>
+    <%= form.submit "Vytvořit" %>
+  </p>
+<% end %>
+
+</div>

@@ -1,14 +1,13 @@
 <p>
-<%= link_to 'Nová položka', new_item_path %>
+<%= link_to 'Nová položka', new_item_path, class: "button" %>
+<%= link_to 'Křestní zápis', {:action => :new, :type => 'krestni_zapis'}, class: "button"%>
 </p>
 
 <table id ="items">
   <tr>
     <th><%= sortable "PRIJMENI", "Jméno a příjmení" %></th>
     <th><%= sortable "ROD_CISLO", "Rodné číslo" %></th>
-    <th>Stav</th>
     <th><%= sortable "DAT_NAR", "Datum narození" %></th>
-    <th><%= sortable "MISTO_NAR", "Místo narození" %></th>
     <th><%= sortable "BYDL", "Bydliště" %></th>
     <th><%= sortable "DAT_KRTU", "Křest" %></th>
   </tr>
@@ -27,9 +26,7 @@
     <tr>
         <td><%= link_to "#{c.JMENO} #{c.PRIJMENI}", {:action => 'show', :id => c.ROD_CISLO, :jmeno => c.JMENO, :prijmeni => c.PRIJMENI} -%></td>
         <td><%= c.ROD_CISLO %> </td>
-        <td><%= c.STAV %></td>
         <td><%= c.DAT_NAR %></td>
-        <td><%= c.MISTO_NAR %></td>
         <td><%= c.BYDL %></td>
         <td><%= krest %></td>
     </tr>
