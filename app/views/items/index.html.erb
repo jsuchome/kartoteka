@@ -3,15 +3,23 @@
 <%= link_to 'Křestní zápis', {:action => :new, :type => 'krestni_zapis'}, class: "button"%>
 </p>
 
+<%= search_form_for @search do |f| %>
+  <div class="field">
+    <%= f.label :PRIJMENI_cont, "Přímení obsahuje" %>
+    <%= f.text_field :PRIJMENI_cont %>
+  </div>
+  <div class="actions"><%= f.submit "Search" %></div>
+<% end %>
+
 <table id ="items">
   <tr>
-    <th><%= sortable "PRIJMENI", "Jméno a příjmení" %></th>
-    <th><%= sortable "ROD_CISLO", "Rodné číslo" %></th>
+    <th><%= sort_link(@search, :PRIJMENI, "Jméno a příjmení") %></th>
+    <th>Rodné číslo</th>
     <th>Stav</th>
-    <th><%= sortable "DAT_NAR", "Datum narození" %></th>
-    <th><%= sortable "MISTO_NAR", "Místo narození" %></th>
-    <th><%= sortable "BYDL", "Bydliště" %></th>
-    <th><%= sortable "DAT_KRTU", "Křest" %></th>
+    <th>Datum narození</th>
+    <th>Místo narození</th>
+    <th>Bydliště</th>
+    <th>Křest</th>
   </tr>
   <% @items.each do |c| %>
     <%

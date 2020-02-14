@@ -6,7 +6,10 @@ class ItemsController < ApplicationController
   # layout "print", only: [:print]
 
   def index
-    @items = Item.order(sort_column + ' ' + sort_direction)
+    # Ransack railcast    http://railscasts.com/episodes/370-ransack?view=asciicast
+    @search = Item.search(params[:q])
+    @items = @search.result
+#    @items = Item.order(sort_column + ' ' + sort_direction)
   end
 
   def edit
