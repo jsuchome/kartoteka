@@ -3,7 +3,7 @@
 <div id="subheader_zapis">Osobní údaje v matrice budou uchovávány na farním úřadě.</div>
 <div id="subheader_zapis">Církev římskokatolická vede registr osob hlásících se k Církvi řimskokatolické.</div>
 
-<%= form_with scope: :item, url: items_path, local: true do |form| %>
+<%= form_with scope: :item, url: items_path do |form| %>
 
   <% if @item.errors.any? %>
     <div id="error_explanation">
@@ -58,7 +58,11 @@
     </tr>
     <tr>
       <td>Příjmení</td>
+      <!--
       <td><%= form.text_field :PRIJ_OTC, class: "text-input" %>
+      <td><%= form.text_field :father_surname, data: {autocomplete_source: Item.order(:PRIJMENI).map(&:PRIJMENI)} %></td>
+      -->
+      <td><%= form.text_field :PRIJ_OTC, data: {autocomplete_source: fathers_path} , class: "text-input" %></td>
     </tr>
     <tr>
       <td>Datum narození</td>

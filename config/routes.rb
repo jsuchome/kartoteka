@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   #get 'items/print'
   #get "items/print/:id", action: :print
   get "items/print/:id", controller: "items", action: :print
+
+  resources :fathers
 end
