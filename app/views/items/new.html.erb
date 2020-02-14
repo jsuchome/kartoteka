@@ -1,5 +1,11 @@
-<h1>Nová položka</h1>
-
+<div id="print_page">
+<%
+nadpis = "Nový záznam"
+if @type == "krestni_zapis"
+  nadpis = "KŘESTNÍ ZÁPIS DÍTĚTE"
+end
+%>
+<div id="nadpis_zapis"><%= nadpis %></div>
 
 <%= form_with scope: :item, url: items_path, local: true do |form| %>
 
@@ -32,4 +38,5 @@
   </p>
 <% end %>
 
+</div>
 <%= link_to 'Zpět na seznam', items_path %>

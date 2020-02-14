@@ -1,5 +1,6 @@
 <p>
-<%= link_to 'Nová položka', new_item_path %>
+<%= link_to 'Nová položka', new_item_path, class: "button" %>
+<%= link_to 'Křestní zápis', {:action => :new, :type => 'krestni_zapis'}, class: "button"%>
 </p>
 
 <table id ="items">
