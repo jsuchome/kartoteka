@@ -2,7 +2,6 @@
   <tr>
     <th>Jméno</th>
     <th>Příjmení</th>
-    <th>RČ</th>
     <th>Stav</th>
     <th>Datum narození</th>
     <th>Místo narození</th>
@@ -23,7 +22,6 @@
   <tr>
     <td><%= @item.JMENO %>
     <td><%= @item.PRIJMENI %>
-    <td><%= @item.ROD_CISLO %> 
     <td><%= @item.STAV %>
     <td><%= @item.DAT_NAR %>
     <td><%= @item.MISTO_NAR %>
@@ -35,7 +33,7 @@
 <%= link_to 'Potvrzení o křtu', {
     :controller => :items,
     :action => 'print',
-    :id => @item.ROD_CISLO, :jmeno => @item.JMENO, :prijmeni => @item.PRIJMENI
+    :id => @item.DAT_NAR, :jmeno => @item.JMENO, :prijmeni => @item.PRIJMENI
   },
   class: "button"
 %>
@@ -43,17 +41,17 @@
     :controller => :items,
     :action => 'print',
     :potvrzeni => 'snatek',
-    :id => @item.ROD_CISLO, :jmeno => @item.JMENO, :prijmeni => @item.PRIJMENI
+    :id => @item.DAT_NAR, :jmeno => @item.JMENO, :prijmeni => @item.PRIJMENI
   },
   class: "button"
 %>
 <%= link_to 'Upravit', {
-    :action => 'edit', :id => @item.ROD_CISLO, :jmeno => @item.JMENO, :prijmeni => @item.PRIJMENI
+    :action => 'edit', :id => @item.DAT_NAR, :jmeno => @item.JMENO, :prijmeni => @item.PRIJMENI
   },
   class: "button"
 %>
 <%= link_to 'Odstranit', {
-    :id => @item.ROD_CISLO, :jmeno => @item.JMENO, :prijmeni => @item.PRIJMENI},
+    :id => @item.DAT_NAR, :jmeno => @item.JMENO, :prijmeni => @item.PRIJMENI},
     method: :delete,
     data: { confirm: 'Opravdu?' },
     class: "button-warn"

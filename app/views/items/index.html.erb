@@ -6,29 +6,17 @@
 <table id ="items">
   <tr>
     <th><%= sortable "PRIJMENI", "Jméno a příjmení" %></th>
-    <th><%= sortable "ROD_CISLO", "Rodné číslo" %></th>
+    <!-- no need to show RC if it's just a date
+    sortable "ROD_CISLO", "Rodné číslo"
+    -->
     <th><%= sortable "DAT_NAR", "Datum narození" %></th>
     <th><%= sortable "BYDL", "Bydliště" %></th>
-    <th><%= sortable "DAT_KRTU", "Křest" %></th>
   </tr>
   <% @items.each do |c| %>
-    <%
-    krest = c.DAT_KRTU
-    if krest.nil?
-      if c.KREST.nil? || c.KREST.upcase != "A"
-        krest = "Ne"
-      else
-        krest = "Ano"
-      end
-    end
-    %>
-
     <tr>
-        <td><%= link_to "#{c.JMENO} #{c.PRIJMENI}", {:action => 'show', :id => c.ROD_CISLO, :jmeno => c.JMENO, :prijmeni => c.PRIJMENI} -%></td>
-        <td><%= c.ROD_CISLO %> </td>
+        <td><%= link_to "#{c.JMENO} #{c.PRIJMENI}", {:action => 'show', :id => c.DAT_NAR, :jmeno => c.JMENO, :prijmeni => c.PRIJMENI} -%></td>
         <td><%= c.DAT_NAR %></td>
         <td><%= c.BYDL %></td>
-        <td><%= krest %></td>
     </tr>
   <% end %>
 </table>

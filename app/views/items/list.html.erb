@@ -1,9 +1,0 @@
-<ul id = "items">
-  <% @items.each do |c| %>
-    <li>
-      <%= link_to "#{c.JMENO} #{c.PRIJMENI}", {:action => 'show', :id => c.ROD_CISLO} -%>
-      <%= c.ROD_CISLO %> 
-      <%= c.STAV %>
-    </li>
-  <% end %>
-</ul>

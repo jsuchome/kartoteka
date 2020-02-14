@@ -56,7 +56,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:JMENO, :PRIJMENI, :ROD_CISLO)
+    params.require(:item).permit(:JMENO, :PRIJMENI, :DAT_NAR)
   end
 
   def sort_column

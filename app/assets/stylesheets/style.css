@@ -21,6 +21,7 @@ table#items {
   padding: 5px;
   border: 1px solid #ccc;
   margin-bottom: 20px;
+  width: 100%;
 }
 
 table#items tr:nth-child(even) {
