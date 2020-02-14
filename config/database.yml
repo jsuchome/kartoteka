@@ -10,6 +10,7 @@ default: &default
   username: farnost
   host: localhost
   encoding: utf8
+  password: <%= ENV.fetch("FARNOST_APP_DP_PASS") %>
 
 development:
   <<: *default
